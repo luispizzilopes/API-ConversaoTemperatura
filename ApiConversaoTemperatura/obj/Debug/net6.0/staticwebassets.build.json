@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Pi1dDCFh7ofrbP3E55X/ICz9Kqe0IMnQdykFabPdvIc=",
+  "Source": "ApiConversaoTemperatura",
+  "BasePath": "_content/ApiConversaoTemperatura",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
