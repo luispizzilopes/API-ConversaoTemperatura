@@ -12,16 +12,14 @@ namespace ApiConversaoTemperatura.Controllers
     [ApiController]
     public class EscalasTemperaturasController : ControllerBase
     {
-        EscalasTemperatura escalasTemperatura = new EscalasTemperatura();
+        ConversaoTemperatura conversao = new ConversaoTemperatura();
+
         [HttpGet("celsius/{valor:double}")]
         public ActionResult<EscalasModel> Get(double valor)
         {
             try
             {
-                EscalasModel escalas = new EscalasModel(valor, 
-                    escalasTemperatura.CelsiusKelvin(valor), escalasTemperatura.CelsiusFahrenheit(valor));
-
-                return Ok(escalas);
+                return Ok(conversao.ConversaoCelsius(valor));
             }
             catch (Exception ex)
             {
@@ -33,11 +31,8 @@ namespace ApiConversaoTemperatura.Controllers
         public ActionResult<EscalasModel> GetKelvin(double valor)
         {
             try
-            {
-                EscalasModel escalas = new EscalasModel(escalasTemperatura.KelvinCelsius(valor),
-                    valor, escalasTemperatura.KelvinFahrenheit(valor));
-
-                return Ok(escalas);
+            { 
+                return Ok(conversao.ConversaoKelvin(valor));
             }
             catch (Exception ex)
             {
@@ -50,10 +45,7 @@ namespace ApiConversaoTemperatura.Controllers
         {
             try
             {
-                EscalasModel escalas = new EscalasModel(escalasTemperatura.FahrenheitCelsius(valor),
-                    escalasTemperatura.FahrenheitKelvin(valor), valor);
-
-                return Ok(escalas);
+                return Ok(conversao.ConversaoFahrenheit(valor));
             }
             catch (Exception ex)
             {
